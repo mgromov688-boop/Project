@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>$3K/Month YouTube. No Camera. No Face. Here's How.</title>
+<meta name="description" content="I built a faceless YouTube channel making $3K/month alongside my sales job. No camera, no editing skills. Here's the exact system.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#080808;
+  --card:#111;
+  --border:#222;
+  --accent:#ff4500;
+  --green:#00d97e;
+  --text:#e0e0e0;
+  --muted:#666;
+  --white:#fff;
+}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ─── PROGRESS BAR ─── */
+.progress-bar{
+  position:fixed;
+  top:0;left:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--accent),#ff7a3a);
+  z-index:200;
+  width:0%;
+  -webkit-transition:width .1s linear;
+  transition:width .1s linear;
+  box-shadow:0 0 12px rgba(255,69,0,.6);
+}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:40px 20px 32px;
+  position:relative;
+  overflow:hidden;
+  background:radial-gradient(ellipse 100% 60% at 50% 0%,rgba(255,69,0,.1) 0%,transparent 65%),var(--bg);
+}
+
+/* ─── ANIMATED SCAN GRID ─── */
+.scan-grid{
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background-image:
+    linear-gradient(90deg,rgba(255,69,0,.025) 1px,transparent 1px),
+    linear-gradient(rgba(255,69,0,.025) 1px,transparent 1px);
+  background-size:80px 80px;
+  pointer-events:none;
+  z-index:0;
+  -webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 30%,transparent 75%);
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,#000 30%,transparent 75%);
+}
+
+.scan-line{
+  position:absolute;
+  top:0;
+  left:-2px;
+  width:2px;
+  height:100%;
+  background:linear-gradient(180deg,transparent,rgba(255,69,0,.4),transparent);
+  pointer-events:none;
+  z-index:1;
+  -webkit-animation:scan 8s linear infinite;
+  animation:scan 8s linear infinite;
+}
+@-webkit-keyframes scan{
+  0%{left:-2px;opacity:0;}
+  10%{opacity:1;}
+  90%{opacity:1;}
+  100%{left:calc(100% + 2px);opacity:0;}
+}
+@keyframes scan{
+  0%{left:-2px;opacity:0;}
+  10%{opacity:1;}
+  90%{opacity:1;}
+  100%{left:calc(100% + 2px);opacity:0;}
+}
+
+.hero > *{position:relative;z-index:2;}
+
+.badge{
+  display:inline-block;
+  border:1px solid var(--accent);
+  color:var(--accent);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  padding:5px 14px;
+  border-radius:2px;
+  margin-bottom:24px;
+  width:fit-content;
+  -webkit-animation:fadeUp .6s ease both;
+  animation:fadeUp .6s ease both;
+}
+@-webkit-keyframes fadeUp{from{opacity:0;-webkit-transform:translateY(16px);}to{opacity:1;-webkit-transform:translateY(0);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+h1{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(38px,10vw,76px);
+  font-weight:800;
+  line-height:.95;
+  color:var(--white);
+  letter-spacing:-.01em;
+  margin-bottom:20px;
+  -webkit-animation:fadeUp .7s .1s ease both;
+  animation:fadeUp .7s .1s ease both;
+}
+h1 span{color:var(--accent);}
+.hero-sub{
+  font-size:clamp(15px,4vw,18px);
+  color:#999;
+  font-weight:300;
+  max-width:480px;
+  margin-bottom:32px;
+  line-height:1.7;
+  -webkit-animation:fadeUp .7s .2s ease both;
+  animation:fadeUp .7s .2s ease both;
+}
+.hero-sub strong{color:var(--text);font-weight:500;}
+
+/* ─── STATS ROW ─── */
+.stats{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-bottom:36px;
+  -webkit-animation:fadeUp .7s .3s ease both;
+  animation:fadeUp .7s .3s ease both;
+}
+.stat{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:4px;
+  padding:14px 18px;
+  min-width:90px;
+  text-align:center;
+  cursor:default;
+  -webkit-transition:all .25s ease;
+  transition:all .25s ease;
+}
+.stat:hover{
+  -webkit-transform:translateY(-3px);
+  transform:translateY(-3px);
+  border-color:var(--accent);
+  background:rgba(255,69,0,.06);
+}
+.stat-n{
+  font-family:'Syne',sans-serif;
+  font-size:28px;
+  font-weight:800;
+  color:var(--white);
+  line-height:1;
+}
+.stat-n span{color:var(--accent);}
+.stat-l{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;}
+
+/* ─── PRIMARY CTA ─── */
+.cta-wrap{
+  position:relative;
+  max-width:440px;
+  -webkit-animation:fadeUp .7s .4s ease both;
+  animation:fadeUp .7s .4s ease both;
+}
+.cta-wrap::before{
+  content:'';
+  position:absolute;
+  top:-8px;left:-8px;right:-8px;bottom:-8px;
+  background:radial-gradient(ellipse,rgba(255,69,0,.4) 0%,transparent 70%);
+  border-radius:8px;
+  z-index:-1;
+  -webkit-animation:pulse 2.5s ease-in-out infinite;
+  animation:pulse 2.5s ease-in-out infinite;
+}
+@-webkit-keyframes pulse{
+  0%,100%{opacity:.4;-webkit-transform:scale(.98);}
+  50%{opacity:1;-webkit-transform:scale(1.02);}
+}
+@keyframes pulse{
+  0%,100%{opacity:.4;transform:scale(.98);}
+  50%{opacity:1;transform:scale(1.02);}
+}
+.cta-primary{
+  display:block;
+  background:var(--accent);
+  color:var(--white);
+  text-decoration:none;
+  text-align:center;
+  font-family:'Syne',sans-serif;
+  font-weight:700;
+  font-size:17px;
+  letter-spacing:.02em;
+  padding:18px 32px;
+  border-radius:3px;
+  margin-bottom:12px;
+  -webkit-transition:all .2s;
+  transition:all .2s;
+  position:relative;
+  overflow:hidden;
+}
+.cta-primary::after{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+  -webkit-animation:shine 3s ease-in-out infinite;
+  animation:shine 3s ease-in-out infinite;
+}
+@-webkit-keyframes shine{
+  0%{left:-100%;}
+  60%,100%{left:100%;}
+}
+@keyframes shine{
+  0%{left:-100%;}
+  60%,100%{left:100%;}
+}
+.cta-primary:hover{
+  -webkit-transform:translateY(-2px);
+  transform:translateY(-2px);
+  background:#ff5a1a;
+}
+.cta-primary:active{opacity:.85;}
+.cta-note{font-size:12px;color:var(--muted);text-align:center;max-width:440px;}
+.cta-note span{color:var(--green);}
+
+/* ─── PROOF STRIP ─── */
+.proof{
+  background:var(--card);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:16px 20px;
+  display:flex;
+  gap:24px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.proof-item{
+  font-size:13px;
+  color:var(--muted);
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.proof-item b{color:var(--text);}
+
+/* ─── SECTION ─── */
+.sec{padding:56px 20px;max-width:560px;margin:0 auto;}
+.sec-tag{
+  display:block;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-bottom:14px;
+}
+.sec h2{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(26px,6vw,40px);
+  font-weight:800;
+  color:var(--white);
+  line-height:1.1;
+  margin-bottom:20px;
+}
+.sec h2 em{font-style:normal;color:var(--accent);}
+.sec p{color:#999;font-size:16px;line-height:1.8;margin-bottom:16px;font-weight:300;}
+.sec p strong{color:var(--text);font-weight:500;}
+
+/* ─── RESULTS TIMELINE ─── */
+.timeline{display:grid;gap:2px;margin-top:24px;}
+.tl-item{
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:16px 18px;
+  position:relative;
+  -webkit-transition:all .2s ease;
+  transition:all .2s ease;
+}
+.tl-item:hover{
+  -webkit-transform:translateX(4px);
+  transform:translateX(4px);
+  border-color:var(--accent);
+}
+.tl-month{
+  font-family:'Syne',sans-serif;
+  font-size:13px;
+  font-weight:700;
+  color:var(--muted);
+  min-width:52px;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  padding-top:2px;
+}
+.tl-content{font-size:14px;color:#aaa;line-height:1.5;}
+.tl-content strong{color:var(--white);display:block;margin-bottom:2px;font-size:15px;}
+.tl-item.win{border-left:3px solid var(--green);}
+.tl-item.win .tl-month{color:var(--green);}
+
+/* ─── WHAT YOU GET ─── */
+.wyg{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:4px;
+  overflow:hidden;
+  margin-top:24px;
+}
+.wyg-head{
+  background:var(--accent);
+  padding:14px 20px;
+  font-family:'Syne',sans-serif;
+  font-weight:700;
+  font-size:15px;
+  letter-spacing:.04em;
+  color:var(--white);
+  text-transform:uppercase;
+}
+.wyg-body{padding:20px;display:grid;gap:10px;}
+.wyg-row{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  font-size:14px;
+  color:#aaa;
+  -webkit-transition:color .2s;
+  transition:color .2s;
+}
+.wyg-row:hover{color:var(--text);}
+.wyg-row::before{
+  content:'✓';
+  color:var(--green);
+  font-weight:700;
+  flex-shrink:0;
+  margin-top:1px;
+}
+.wyg-row strong{color:var(--text);}
+
+/* ─── TESTIMONIALS ─── */
+.testi-grid{display:grid;gap:12px;margin-top:24px;}
+.testi{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-left:3px solid #f5c842;
+  padding:20px;
+  border-radius:0 3px 3px 0;
+}
+.testi-result{
+  display:inline-block;
+  background:rgba(0,217,126,.1);
+  border:1px solid rgba(0,217,126,.3);
+  color:var(--green);
+  font-weight:700;
+  font-size:16px;
+  padding:4px 12px;
+  border-radius:2px;
+  margin-bottom:10px;
+}
+.testi-text{font-size:14px;color:#999;font-style:italic;line-height:1.65;margin-bottom:10px;}
+.testi-author{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.05em;}
+
+/* ─── GUARANTEE ─── */
+.guarantee{
+  background:var(--card);
+  border:2px solid #f5c842;
+  border-radius:4px;
+  padding:24px 20px;
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+  margin-top:24px;
+}
+.g-icon{font-size:36px;flex-shrink:0;}
+.g-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#f5c842;margin-bottom:6px;}
+.g-text{font-size:13px;color:#777;line-height:1.6;}
+
+/* ─── FAQ ─── */
+.faq{display:grid;gap:2px;margin-top:24px;}
+.faq-item{background:var(--card);border:1px solid var(--border);-webkit-transition:border-color .2s;transition:border-color .2s;}
+.faq-item:hover{border-color:#333;}
+.faq-q{
+  padding:16px 18px;
+  font-size:14px;
+  font-weight:600;
+  color:var(--text);
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  -webkit-user-select:none;
+  user-select:none;
+}
+.faq-q .arr{color:var(--accent);font-size:16px;flex-shrink:0;-webkit-transition:-webkit-transform .2s;transition:transform .2s;}
+.faq-q.open .arr{-webkit-transform:rotate(180deg);transform:rotate(180deg);}
+.faq-a{display:none;padding:0 18px 16px;font-size:13px;color:#777;line-height:1.7;border-top:1px solid var(--border);padding-top:14px;}
+.faq-a.show{display:block;}
+
+/* ─── FINAL CTA BLOCK ─── */
+.final{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:4px;
+  padding:36px 24px;
+  text-align:center;
+  margin:8px 0 40px;
+  position:relative;
+  overflow:hidden;
+}
+.final::before{
+  content:'';
+  position:absolute;
+  top:-50%;left:50%;
+  width:300px;height:300px;
+  background:radial-gradient(ellipse,rgba(255,69,0,.15) 0%,transparent 70%);
+  -webkit-transform:translateX(-50%);
+  transform:translateX(-50%);
+  pointer-events:none;
+}
+.final > *{position:relative;}
+.final h3{
+  font-family:'Syne',sans-serif;
+  font-size:clamp(22px,5vw,32px);
+  font-weight:800;
+  color:var(--white);
+  margin-bottom:10px;
+  line-height:1.15;
+}
+.final p{font-size:14px;color:var(--muted);margin-bottom:24px;}
+.price-wrap{margin-bottom:24px;}
+.price-old{font-size:15px;color:var(--muted);text-decoration:line-through;margin-bottom:4px;}
+.price-new{font-family:'Syne',sans-serif;font-size:56px;font-weight:800;color:var(--white);line-height:1;}
+.price-sub{font-size:12px;color:var(--muted);margin-top:4px;}
+
+/* ─── STICKY BAR ─── */
+.sticky{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  background:rgba(8,8,8,.97);
+  border-top:1px solid var(--border);
+  padding:12px 16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  z-index:99;
+  -webkit-transform:translateY(100%);
+  transform:translateY(100%);
+  -webkit-transition:-webkit-transform .3s ease;
+  transition:transform .3s ease;
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+}
+.sticky.show{-webkit-transform:translateY(0);transform:translateY(0);}
+.sticky-text{flex:1;font-size:13px;color:var(--muted);line-height:1.3;}
+.sticky-text strong{color:var(--white);display:block;font-size:14px;}
+.sticky-btn{
+  background:var(--accent);
+  color:var(--white);
+  text-decoration:none;
+  font-family:'Syne',sans-serif;
+  font-weight:700;
+  font-size:13px;
+  padding:12px 18px;
+  border-radius:3px;
+  white-space:nowrap;
+  flex-shrink:0;
+  -webkit-transition:all .2s;
+  transition:all .2s;
+  position:relative;
+  overflow:hidden;
+}
+.sticky-btn::after{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);
+  -webkit-animation:shine 3s ease-in-out infinite;
+  animation:shine 3s ease-in-out infinite;
+}
+.sticky-btn:active{opacity:.85;}
+
+/* ─── DIVIDER ─── */
+hr{border:none;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);}
+
+/* ─── FOOTER ─── */
+footer{
+  border-top:1px solid var(--border);
+  padding:24px 20px;
+  text-align:center;
+  font-size:11px;
+  color:#444;
+  line-height:1.8;
+  background:var(--bg);
+}
+footer a{color:#444;}
+
+/* ─── FADE IN ON SCROLL ─── */
+.reveal{
+  opacity:0;
+  -webkit-transform:translateY(20px);
+  transform:translateY(20px);
+  -webkit-transition:opacity .6s ease,-webkit-transform .6s ease;
+  transition:opacity .6s ease,transform .6s ease;
+}
+.reveal.visible{
+  opacity:1;
+  -webkit-transform:translateY(0);
+  transform:translateY(0);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion:reduce){
+  .scan-line,.cta-wrap::before,.cta-primary::after,.sticky-btn::after{
+    -webkit-animation:none;
+    animation:none;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="scan-grid"></div>
+  <div class="scan-line"></div>
+  <div class="badge">Real Story · No Camera · No Hype</div>
+  <h1>$3K/Month<br>YouTube.<br><span>No Face.</span></h1>
+  <p class="hero-sub">
+    I work in <strong>phone sales 8hrs/day</strong>. Too camera-shy for YouTube.<br>
+    Found a system. 6 months later — <strong>$2,800 last month</strong> while I slept.
+  </p>
+  <div class="stats">
+    <div class="stat"><div class="stat-n"><span>$3K</span></div><div class="stat-l">Per Month</div></div>
+    <div class="stat"><div class="stat-n">0<span>s</span></div><div class="stat-l">On Camera</div></div>
+    <div class="stat"><div class="stat-n">6<span>h</span></div><div class="stat-l">Per Week</div></div>
+    <div class="stat"><div class="stat-n"><span>30</span></div><div class="stat-l">Day Refund</div></div>
+  </div>
+  <div class="cta-wrap">
+    <a href="https://www.digistore24.com/redir/482119/mgromov688aa1f/" class="cta-primary" target="_blank" rel="nofollow">
+      Watch the Free Training →
+    </a>
+  </div>
+  <p class="cta-note"><span>🔒 30-day money back</span> · No camera required · Instant access</p>
+</section>
+
+<!-- PROOF STRIP -->
+<div class="proof">
+  <div class="proof-item">🏆 <b>7,000+</b> students</div>
+  <div class="proof-item">▶️ <b>Gold</b> Play Button</div>
+  <div class="proof-item">📰 Featured in <b>Forbes</b></div>
+  <div class="proof-item">🔒 <b>Digistore24</b> protected</div>
+</div>
+
+<hr>
+
+<!-- STORY -->
+<section class="sec">
+  <span class="sec-tag">Why This Works</span>
+  <h2>YouTube channels are <em>digital assets.</em> Not content.</h2>
+  <p>Most people think YouTube = being on camera. Wrong. Faceless channels — stock footage + voiceover + your knowledge — are the closest thing to <strong>owning rental property online.</strong></p>
+  <p>You build the video once. It earns for years. No face. No personal brand. <strong>No one knows it's you.</strong></p>
+</section>
+
+<hr>
+
+<!-- TIMELINE -->
+<section class="sec">
+  <span class="sec-tag">My Results</span>
+  <h2>Month by month. <em>Real numbers.</em></h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-month">Mo 1–2</div>
+      <div class="tl-content"><strong>8 videos posted</strong>Almost zero views. Felt stupid. Kept going.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-month">Mo 3</div>
+      <div class="tl-content"><strong>200 subscribers</strong>First real comments. Algorithm noticed.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-month">Mo 4</div>
+      <div class="tl-content"><strong>15K views on 1 video</strong>Jumped to 2,100 subs in 2 weeks.</div>
+    </div>
+    <div class="tl-item win">
+      <div class="tl-month">Mo 5</div>
+      <div class="tl-content"><strong>Monetization unlocked 🎉</strong>First AdSense check: $180.</div>
+    </div>
+    <div class="tl-item win">
+      <div class="tl-month">Mo 6</div>
+      <div class="tl-content"><strong>$2,800 this month</strong>AdSense + affiliate. ~5 hrs/week.</div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- WHAT YOU GET -->
+<section class="sec">
+  <span class="sec-tag">The System</span>
+  <h2>What's inside <em>Tube Mastery</em></h2>
+  <div class="wyg">
+    <div class="wyg-head">10 Modules · Lifetime Access</div>
+    <div class="wyg-body">
+      <div class="wyg-row"><strong>100+ vetted niches</strong> — no guesswork, just pick and start</div>
+      <div class="wyg-row"><strong>Fill-in-the-blank scripts</strong> — first video in 30 minutes</div>
+      <div class="wyg-row"><strong>Faceless video system</strong> — stock footage + voiceover only</div>
+      <div class="wyg-row"><strong>YouTube SEO blueprint</strong> — thumbnails, titles, algorithm</div>
+      <div class="wyg-row"><strong>Multi-stream monetization</strong> — AdSense + affiliate + sponsors</div>
+      <div class="wyg-row"><strong>Scale & outsource module</strong> — hire for $5–15/video</div>
+      <div class="wyg-row"><strong>Private mastermind group</strong> — daily Q&A with Matt</div>
+    </div>
+  </div>
+  <br>
+  <a href="https://www.digistore24.com/redir/482119/mgromov688aa1f/" class="cta-primary" target="_blank" rel="nofollow">
+    Get Instant Access →
+  </a>
+  <p class="cta-note" style="margin-top:10px;"><span>🔒 30-day refund</span> · Processed by Digistore24</p>
+</section>
+
+<hr>
+
+<!-- TESTIMONIALS -->
+<section class="sec">
+  <span class="sec-tag">Student Results</span>
+  <h2>Real people. <em>Real numbers.</em></h2>
+  <div class="testi-grid">
+    <div class="testi">
+      <div class="testi-result">+$4,500 in 3 months</div>
+      <p class="testi-text">"My faceless channel generated over $4,500 in ad revenue. I never show my face. My family doesn't even know I have a YouTube channel."</p>
+      <div class="testi-author">— Sarah P.</div>
+    </div>
+    <div class="testi">
+      <div class="testi-result">+$3,800 in 90 days</div>
+      <p class="testi-text">"Less than 90 days, I hit monetization and added $3,800 to my savings purely from YouTube ads."</p>
+      <div class="testi-author">— Michael L.</div>
+    </div>
+  </div>
+  <p style="font-size:11px;color:#444;margin-top:12px;text-align:center;">*Results not typical. Individual results vary based on effort and niche.</p>
+</section>
+
+<hr>
+
+<!-- GUARANTEE -->
+<section class="sec">
+  <span class="sec-tag">Zero Risk</span>
+  <h2>30-day <em>money-back.</em> No questions.</h2>
+  <div class="guarantee">
+    <div class="g-icon">🛡️</div>
+    <div>
+      <div class="g-title">Full refund. Automatic.</div>
+      <p class="g-text">Processed by Digistore24 — a third-party platform. Matt doesn't hold your money. Request a refund directly through Digistore24 within 30 days. Done.</p>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- FAQ -->
+<section class="sec">
+  <span class="sec-tag">FAQ</span>
+  <h2>Quick <em>answers.</em></h2>
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q" onclick="faq(this)">Is faceless YouTube saturated in 2025? <span class="arr">▾</span></div>
+      <div class="faq-a">The bar is higher — which filters out lazy AI spam. Channels with real value grow faster than ever. The system teaches genuine content creation, not content farms.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="faq(this)">How long until I see money? <span class="arr">▾</span></div>
+      <div class="faq-a">Honest answer: 3–6 months to first meaningful revenue. You need 1,000 subs + 4,000 watch hours for AdSense. Affiliate commissions can come earlier — from video #1.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="faq(this)">Do I need editing skills or gear? <span class="arr">▾</span></div>
+      <div class="faq-a">No. CapCut (free), stock footage (free), AI voiceover or your own. Total startup cost is near zero. The course teaches the exact drag-and-drop workflow.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="faq(this)">Is Matt Par actually legit? <span class="arr">▾</span></div>
+      <div class="faq-a">Check "Make Money Matt" on YouTube right now — it's public, monetized, real. He has a physical Gold Play Button from YouTube. Featured in Forbes. 7,000+ students. Verifiable.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div style="padding:0 20px;max-width:560px;margin:0 auto;">
+  <div class="final">
+    <h3>Ready to build your<br>faceless channel?</h3>
+    <p>Start with the free training. Watch 30 minutes. Decide after.</p>
+    <div class="price-wrap">
+      <div class="price-old">Regular: $997</div>
+      <div class="price-new">$497</div>
+      <div class="price-sub">with webinar discount · applied automatically</div>
+    </div>
+    <a href="https://www.digistore24.com/redir/482119/mgromov688aa1f/" class="cta-primary" target="_blank" rel="nofollow" style="display:block;max-width:100%;">
+      Watch Free Training →
+    </a>
+    <p style="margin-top:12px;font-size:12px;color:#444;">🔒 30-Day Money-Back · Digistore24 · No Camera Required</p>
+  </div>
+</div>
+
+<footer>
+  <p>Affiliate disclosure: this page contains affiliate links. I may earn a commission if you purchase — at no extra cost to you.</p>
+  <p style="margin-top:6px;">Results shown are real but not typical. Individual results depend on effort, niche, and consistency.</p>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky" id="bar">
+  <div class="sticky-text">
+    <strong>Faceless YouTube System</strong>
+    Free training · $500 discount inside
+  </div>
+  <a href="https://www.digistore24.com/redir/482119/mgromov688aa1f/" class="sticky-btn" target="_blank" rel="nofollow">Watch Now →</a>
+</div>
+
+<script>
+// Sticky bar + Progress bar
+var bar=document.getElementById('bar');
+var progressBar=document.getElementById('progressBar');
+var ticking=false;
+
+function updateScroll(){
+  var scrollTop=window.scrollY;
+  var docHeight=document.documentElement.scrollHeight-window.innerHeight;
+  var pct=docHeight>0?(scrollTop/docHeight)*100:0;
+  progressBar.style.width=pct+'%';
+  bar.classList.toggle('show',scrollTop>400);
+  ticking=false;
+}
+
+window.addEventListener('scroll',function(){
+  if(!ticking){
+    requestAnimationFrame(updateScroll);
+    ticking=true;
+  }
+},{passive:true});
+
+// Reveal on scroll
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.1});
+  document.querySelectorAll('.sec').forEach(function(el){
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+}
+
+// FAQ
+function faq(el){
+  var a=el.nextElementSibling;
+  var open=el.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.classList.remove('open');
+    q.nextElementSibling.classList.remove('show');
+  });
+  if(!open){el.classList.add('open');a.classList.add('show');}
+}
+</script>
+</body>
+</html>
